@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +18,7 @@ public class GamePlay : MonoBehaviour, IAudioCtrl
     private void Awake()
     {
         if (instance) Debug.LogError("GamePlay da ton tai", this);
+        Debug.Log("GamePlay đã được gán vô instance");
         instance = this;
     }
 

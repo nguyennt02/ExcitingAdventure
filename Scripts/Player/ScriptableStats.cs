@@ -56,7 +56,7 @@ namespace TarodevController
         [Header("DASH")]
         public float MaxDashNumber = 1f;
         public float MaxWallFallSpeed = 5f;
-        public float SpeedWall = 1f;
+        public float SpeedWall = 2f;
         public float DashPower = 30f;
         public float TimeDash = 0.2f;
         public float JumpWallPower = 10f;

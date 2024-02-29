@@ -10,23 +10,23 @@ public class AudioManager : MonoBehaviour, IMusicSource, ISfxSource
     {
         MusicVolume(PlayerPrefs.GetFloat("MusicVolume",0));
         SFXVolume(PlayerPrefs.GetFloat("SFXVolume", 0));
+        AddEven();
     }
-
-    protected virtual void OnEnable()
-    {
-        GamePlay.Instance.ToggleMusic += ToggleMusic;
-        GamePlay.Instance.ToggleSFX += ToggleSFX;
-        GamePlay.Instance.MusicVolume += MusicVolume;
-        GamePlay.Instance.SFXVolume += SFXVolume;
-    }
-    protected virtual void OnDisable()
+    protected virtual void OnDestroy()
     {
         GamePlay.Instance.ToggleMusic -= ToggleMusic;
         GamePlay.Instance.ToggleSFX -= ToggleSFX;
         GamePlay.Instance.MusicVolume -= MusicVolume;
         GamePlay.Instance.SFXVolume -= SFXVolume;
     }
-
+    protected virtual void AddEven()
+    {
+        if (!GamePlay.Instance) Debug.LogError("GamePlay Instance bị null", this);
+        GamePlay.Instance.ToggleMusic += ToggleMusic;
+        GamePlay.Instance.ToggleSFX += ToggleSFX;
+        GamePlay.Instance.MusicVolume += MusicVolume;
+        GamePlay.Instance.SFXVolume += SFXVolume;
+    }
     public virtual void PlayMusic(string name)
     {
         Sound s = Array.Find(musicSounds, x => x.name == name);

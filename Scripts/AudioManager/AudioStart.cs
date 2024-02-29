@@ -11,6 +11,6 @@ public class AudioStart : AudioManager
         if (instance) Debug.LogError("AudioStart da ton tai", this);
         instance = this;
     }
-    protected override void OnEnable(){}
-    protected override void OnDisable(){}
+    protected override void AddEven(){}
+    protected override void OnDestroy(){}
 }
